@@ -1,3 +1,4 @@
-**/*.info
-**/*.json
-
+CivitAI_Info_Files/*.info
+CivitAI_Info_Files/*.json
+CSVs/*.csv
+test.py

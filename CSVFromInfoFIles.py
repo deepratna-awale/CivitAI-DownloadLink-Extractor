@@ -6,6 +6,7 @@ import os
 
 from os import getcwd, path, walk
 
+import glob
 
 # Constants
 CWD = os.getcwd()
@@ -25,12 +26,12 @@ CSV_NAMES = {
 
 def get_info_file_names(info_files_path):
     list_of_info_files = []
+    
+    info_files = glob.glob(os.path.join(info_files_path,'*.info'))
+    json_files = glob.glob(os.path.join(info_files_path, '*.json'))
 
-    for (dirpath, dirnames, filenames) in walk(info_files_path):
-        list_of_info_files.extend(filenames)
-
-        break
-
+    list_of_info_files.extend(info_files+json_files)
+    
     return list_of_info_files
 
 
@@ -95,6 +96,7 @@ def read_info_file(path):
 
 
 def write_csv(csv_type='lora'):
+    
     model_set = set()
     model_count = 0
     models_in_csv = 0
@@ -117,7 +119,7 @@ def write_csv(csv_type='lora'):
         for file_name in list_of_info_files:
             info_file_path = os.path.join(INFO_FILES_PATH, file_name)
             model_type, model_name, url = read_info_file(info_file_path)
-
+            
             if model_type == csv_type:
                 if model_name not in model_set:
                     writer.writerow([models_in_csv+1, model_name, url])
