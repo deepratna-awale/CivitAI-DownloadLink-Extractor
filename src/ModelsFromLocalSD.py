@@ -8,19 +8,18 @@ from datetime import datetime
 import pathlib
 
 config = configparser.ConfigParser()
-config.read('config.ini')
-# config.read('local-config.ini')
+# config.read('config.ini')
+config.read('local-config.ini')
 
 
 # Constants
-CWD = pathlib.Path(__file__).parent.resolve()
-ROOT_DIR = pathlib.Path().parent.resolve()
+ROOT_DIR = pathlib.Path(__file__).parent.parent.resolve()
 
 SD_PATH = config['SD-DIR']['dir']
 OP_PATH = config['Output']['dir']
 
 if OP_PATH[0] == '<':
-    OP_PATH = '/CSVs/'
+    OP_PATH = 'CSVs'
 
 
 def get_info_file_names_from_SD(models_dir):
@@ -51,7 +50,7 @@ if __name__ == "__main__":
         model_type, model_name, url = data[:3]
 
         csv_name = model_type + '.csv'
-        csv_path = ROOT_DIR + OP_PATH + csv_name
+        csv_path = os.path.join(ROOT_DIR, OP_PATH, csv_name)
 
         write_to_csv(data, csv_path)
 

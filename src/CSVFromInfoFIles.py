@@ -9,11 +9,10 @@ import glob
 from collections import defaultdict
 
 # Constants
-CWD = pathlib.Path(__file__).parent.resolve()
-ROOT_DIR = pathlib.Path().parent.resolve()
-# relative path to all .civitai.info files, you don't need to seperate lora/locon/textualinversion/sd_model files.
+ROOT_DIR = pathlib.Path(__file__).parent.parent.resolve()
+# relative path to all .civitai.info files, you don't need to seperate lora/locon/textualinversion/sd_model/hypernetwork files.
 # Copy all models info files to 'CivitAI_Info_Files' directory (folder).
-INFO_FILES_PATH = ROOT_DIR+'/CivitAI_Info_Files/'
+INFO_FILES_PATH = os.path.join(ROOT_DIR, 'CivitAI_Info_Files/')
 # Change CSV NAMES HERE IF NEEDED
 
 
@@ -80,7 +79,7 @@ def read_info_file(path):
 
 
 def write_to_csv(data, csv_path):
-    csv_name = csv_path.split("/")[-1]
+    csv_name = csv_path.split("\\")[-1]
     csv_type = csv_name[:-4]
 
     model_set = set()
@@ -121,14 +120,15 @@ if __name__ == "__main__":
         model_type, model_name, url = data[:3]
 
         csv_name = model_type + '.csv'
-        csv_path = ROOT_DIR + '/CSVs/' + csv_name
-
+        # csv_path = ROOT_DIR + '/CSVs/' + csv_name
+        csv_path = os.path.join(ROOT_DIR, 'CSVs', csv_name)
         write_to_csv(data, csv_path)
 
         print('Wrote', model_name, 'to', csv_name)
         model_count[model_type] += 1
 
     print("----------------------------\n\nWrote", str(dict(model_count)))
+    
     if failed_files:
         now = datetime.now()
         current_time = now.strftime("%Y_%m_%d_%H_%M_%S")
