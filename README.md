@@ -1,5 +1,23 @@
 # CivitAI-DownloadLink-Extractor
- Extract CivitAI Model Links via various sources.
+ Extract _CivitAI Model Download Links_ via:
+ - [x] Info Files
+ - [x] Stable Diffusion Directory
+ - [ ] CivitAI Download History 
+
+## Introduction
+ - A handy tool to extract download links for CivitAI Models
+ - Currently capable of extracting links for:
+   - [x] LORAs
+   - [x] Lycoris/ Locon
+   - [x] Embeddings/ Textual Inversion
+   - [x] Checkpoints
+   - [ ] Poses (Unimplemented)
+   - [ ] VAEs (Untested)
+   - [ ] Aesthetic Gradients (Untested)
+   - [ ] Upscalers (Unimplemented)
+   - [ ] Wildcards (Unimplemented)
+
+
 
 # Currently Supported format:
 * '*.info' files (found in your lora/model folder if downloaded through any CivitAI extension)
@@ -10,31 +28,45 @@
 # How to use
 1. Make sure you have all files required. 
    ```bash
-    D:/CivitAi-DownloadLink-Extractor
-    │   .gitattributes
-    │   .gitignore
-    │   CSVFromInfoFIles.py
-    │   LICENSE
-    │   README.md
-    │   
-    ├───CivitAI_Info_Files
-    │       _InfoFilesHere.txt
-    │       
-    └───CSVs
-            ckpts.csv
-            cnetmodels.csv
-            LORAs.csv
-            TextualInversions.csv
-            _csv files go here.txt
+   D:.
+   │   config.ini
+   │   CSVFromInfoFIles.py
+   │   LICENSE
+   │   local-config.ini
+   │   ModelsFromLocalSD.py
+   │   README.md
+   │
+   ├───CivitAI_Info_Files
+   │       _InfoFilesHere.txt
+   │
+   ├───CSVs
+   │       _csv files go here.txt
+   └───
    ```
 
-2. Copy all *.info files to **CivitAI_Info_Files** directory. You do not need to seperate the info files based on model type, CSVs will do that for you!
+## Method 1: Copying info files to Projects root dir
+1. Copy all *.info files to [**CivitAI_Info_Files**](../blob/master/CivitAI_Info_Files) directory. You do not need to seperate the info files based on model type, CSVs will do that for you!
 
-3. Run CSVromInfoFile.py 
-```
+2. Run CSVFromInfoFile.py 
+
+```bash
 python CSVFromInfoFiles.py
 ```
-4. All your CSVs are ready with the following format:
+
+## Method 2: Stable Diffusion Path
+> NOTE: ALL PATHS IN [`CONFIG.INI`](../blob/master/config.ini) MUST BE ABSOLUTE PATHS
+1. Edit `config.ini`.
+```ini
+[SD-DIR]
+dir = <SD Folder Location>
+
+[Output] # This is optional, Default is root dir/CSVs
+dir = <Custom Output Dir>
+```
+
+---
+# CSV Structure
+1. All your CSVs are with the following format:
 
 Sr.no | Model Name | Model URL
 --- | --- | ---
@@ -42,10 +74,7 @@ Sr.no | Model Name | Model URL
 2 | ... | ...
 3 | ... | ...
 
-## Future Work
-* Work directly with links
-* Work with model name only using CivitAI Search
 
-## Author Notes
-I made this script to use with Runpod.
-If you are looking for the same, goto my `Runpod Setup Files` repository. 
+## Author Notes [BONUS]
+- I made this script to use with Runpod.
+- If you are looking to **batch download** these extracted models to **Runpod**, goto my `Better Faster Runpod` repository.

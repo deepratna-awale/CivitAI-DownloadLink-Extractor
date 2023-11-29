@@ -2,3 +2,6 @@ CivitAI_Info_Files/*.info
 CivitAI_Info_Files/*.json
 CSVs/*.csv
 test.py
+local-config.ini
+*.txt
+*/__pycache__/
