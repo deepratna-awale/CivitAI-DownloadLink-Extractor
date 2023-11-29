@@ -4,6 +4,7 @@
  - [x] Stable Diffusion Directory
  - [ ] CivitAI Download History 
 
+
 ## Introduction
  - A handy tool to extract download links for CivitAI Models
  - Currently capable of extracting links for:
@@ -17,10 +18,6 @@
    - [ ] Upscalers (Unimplemented)
    - [ ] Wildcards (Unimplemented)
 
-
-
-# Currently Supported format:
-* '*.info' files (found in your lora/model folder if downloaded through any CivitAI extension)
 
 # Requirements
 1. Python 3 or higher
@@ -45,7 +42,7 @@
    ```
 
 ## Method 1: Copying info files to Projects root dir
-1. Copy all *.info files to [**CivitAI_Info_Files**](../blob/master/CivitAI_Info_Files) directory. You do not need to seperate the info files based on model type, CSVs will do that for you!
+1. Copy all *.info files to [**CivitAI_Info_Files**](../tree/main/CivitAI_Info_Files) directory. You do not need to seperate the info files based on model type, CSVs will do that for you!
 
 2. Run CSVFromInfoFile.py 
 
@@ -54,7 +51,7 @@ python CSVFromInfoFiles.py
 ```
 
 ## Method 2: Stable Diffusion Path
-> NOTE: ALL PATHS IN [`CONFIG.INI`](../blob/master/config.ini) MUST BE ABSOLUTE PATHS
+> NOTE: ALL PATHS IN [`CONFIG.INI`](../tree/main/config.ini) MUST BE ABSOLUTE PATHS
 1. Edit `config.ini`.
 ```ini
 [SD-DIR]
