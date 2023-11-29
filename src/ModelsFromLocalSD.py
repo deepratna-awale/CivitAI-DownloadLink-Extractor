@@ -5,6 +5,7 @@ import csv
 from CSVFromInfoFIles import *
 import configparser
 from datetime import datetime
+import pathlib
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -12,9 +13,12 @@ config.read('config.ini')
 
 
 # Constants
-CWD = os.getcwd()
+CWD = pathlib.Path(__file__).parent.resolve()
+ROOT_DIR = pathlib.Path().parent.resolve()
+
 SD_PATH = config['SD-DIR']['dir']
 OP_PATH = config['Output']['dir']
+
 if OP_PATH[0] == '<':
     OP_PATH = '/CSVs/'
 
@@ -47,7 +51,7 @@ if __name__ == "__main__":
         model_type, model_name, url = data[:3]
 
         csv_name = model_type + '.csv'
-        csv_path = CWD + OP_PATH + csv_name
+        csv_path = ROOT_DIR + OP_PATH + csv_name
 
         write_to_csv(data, csv_path)
 

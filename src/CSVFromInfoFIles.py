@@ -3,15 +3,17 @@ import ast
 import csv
 import os
 from os import getcwd, path, walk
+import pathlib
 from datetime import datetime
 import glob
 from collections import defaultdict
 
 # Constants
-CWD = os.getcwd()
+CWD = pathlib.Path(__file__).parent.resolve()
+ROOT_DIR = pathlib.Path().parent.resolve()
 # relative path to all .civitai.info files, you don't need to seperate lora/locon/textualinversion/sd_model files.
 # Copy all models info files to 'CivitAI_Info_Files' directory (folder).
-INFO_FILES_PATH = CWD+'/CivitAI_Info_Files/'
+INFO_FILES_PATH = ROOT_DIR+'/CivitAI_Info_Files/'
 # Change CSV NAMES HERE IF NEEDED
 
 
@@ -119,7 +121,7 @@ if __name__ == "__main__":
         model_type, model_name, url = data[:3]
 
         csv_name = model_type + '.csv'
-        csv_path = CWD + '/CSVs/' + csv_name
+        csv_path = ROOT_DIR + '/CSVs/' + csv_name
 
         write_to_csv(data, csv_path)
 
