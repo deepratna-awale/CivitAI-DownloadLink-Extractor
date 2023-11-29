@@ -42,7 +42,7 @@
    ```
 
 ## Method 1: Copying info files to Projects root dir
-1. Copy all *.info files to [**CivitAI_Info_Files**](../tree/main/CivitAI_Info_Files) directory. You do not need to seperate the info files based on model type, CSVs will do that for you!
+1. Copy all *.info files to [**CivitAI_Info_Files**](./CivitAI_Info_Files) directory. You do not need to seperate the info files based on model type, CSVs will do that for you!
 
 2. Run CSVFromInfoFile.py 
 
@@ -51,7 +51,7 @@ python CSVFromInfoFiles.py
 ```
 
 ## Method 2: Stable Diffusion Path
-> NOTE: ALL PATHS IN [`CONFIG.INI`](../tree/main/config.ini) MUST BE ABSOLUTE PATHS
+> NOTE: ALL PATHS IN [`CONFIG.INI`](./config.ini) MUST BE ABSOLUTE PATHS
 1. Edit `config.ini`.
 ```ini
 [SD-DIR]
