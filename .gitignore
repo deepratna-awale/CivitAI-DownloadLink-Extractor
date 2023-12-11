@@ -4,5 +4,5 @@ CSVs/*.csv
 test.py
 local-config.ini
 *.txt
-__pycache__/
+..__pycache__/
 !requirements.txt
