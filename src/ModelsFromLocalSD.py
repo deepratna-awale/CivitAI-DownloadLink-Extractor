@@ -9,7 +9,7 @@ import pathlib
 
 config = configparser.ConfigParser()
 # config.read('config.ini')
-config.read('local-config.ini')
+config.read('../config.ini')
 
 
 # Constants

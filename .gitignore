@@ -5,3 +5,4 @@ test.py
 local-config.ini
 *.txt
 __pycache__/
+!requirements.txt

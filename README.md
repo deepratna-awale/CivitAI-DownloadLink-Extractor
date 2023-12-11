@@ -2,7 +2,7 @@
  Extract _CivitAI Model Download Links_ via:
  - [x] Info Files
  - [x] Stable Diffusion Directory
- - [ ] CivitAI Download History 
+ - [x] CivitAI Download History 
 
 
 ## Introduction
@@ -20,27 +20,45 @@
 
 
 # Requirements
-1. Python 3 or higher
+1. Python v3.4 or higher
+2. Pip installer
+3. Chrome v120.x `(Other browsers wont work!)` - only if you want to extract links your your CivitAI Download History.
+
 
 # How to use
-1. Make sure you have all files required. 
-   ```bash
-   D:.
-   │   config.ini
-   │   CSVFromInfoFIles.py
-   │   LICENSE
-   │   local-config.ini
-   │   ModelsFromLocalSD.py
-   │   README.md
-   │
-   ├───CivitAI_Info_Files
-   │       _InfoFilesHere.txt
-   │
-   ├───CSVs
-   │       _csv files go here.txt
-   └───
-   ```
+1. Make sure you have all files required.
 
+```bash
+D:\CivitAI-DownloadLink-Extractor
+│   .gitattributes
+│   .gitignore
+│   config.ini
+│   LICENSE
+│   README.md
+│   requirements.txt
+│   test.py
+│
+├───CivitAI_Info_Files
+│       _InfoFilesHere.txt
+├───CSVs
+│       _csv files go here.txt
+│
+├───src
+│      chromelauncher.py
+│      CSVFromInfoFIles.py
+│      ModelsFromLocalSD.py
+│      scrape-from-download-history.py
+└───
+```
+
+# Install Prerequisites
+```bash
+cd CivitAI-DownloadLink-Extractor
+```
+
+```bash
+pip install -r requirements.txt
+```
 ## Method 1: Copying info files to Projects root dir
 1. Copy all *.info files to [**CivitAI_Info_Files**](./CivitAI_Info_Files) directory. You do not need to seperate the info files based on model type, CSVs will do that for you!
 
