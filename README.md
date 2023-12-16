@@ -118,12 +118,13 @@ dir = <Custom Output Dir>
 - The script will automatically try to launch chrome from default paths.
   - If path is not found then it will ask you to open chrome.
   - The program will get the path from the executable/ file for any OS.
+
 - The browser will be closed and started in debug mode, so we can control it with program.
 - Once the Debug Browser starts (You cant really tell it's in debug mode)
   - The script will automatically navigate to user account (to check if you are logged in).
   - If you are logged in it will navigate to your download history automatically.
-  - It will scroll down to the bottom of the page (PLEASE DO NOT minimize, or click, or use keyboard, the script WILL FAIL, unfortunately there is no particular way around this).
-  - 
+  - It will scroll down to the bottom of the page (PLEASE DO NOT minimize, mouse click, or use the keyboard; the script WILL FAIL! Unfortunately, there is no particular way around this).
+
 
 ![Chrome Tutorial](https://github.com/deepratnaawale/CivitAI-DownloadLink-Extractor/blob/main/tutorial_gif.gif)
 
