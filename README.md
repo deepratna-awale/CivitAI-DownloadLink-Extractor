@@ -125,7 +125,7 @@ dir = <Custom Output Dir>
   - It will scroll down to the bottom of the page (PLEASE DO NOT minimize, or click, or use keyboard, the script WILL FAIL, unfortunately there is no particular way around this).
   - 
 
-![Chrome Tutorial](https://github.com/deepratnaawale/CivitAI-DownloadLink-Extractor/blob/main/tutorial_gif.gif) "Chrome Tutorial")
+![Chrome Tutorial](https://github.com/deepratnaawale/CivitAI-DownloadLink-Extractor/blob/main/tutorial_gif.gif)
 
 ---
 # CSV Structure
