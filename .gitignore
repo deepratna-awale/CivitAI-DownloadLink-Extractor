@@ -10,3 +10,5 @@ local-config.ini
 *.pyc
 dist
 *.egg-info/
+!/CivitAI_Info_Files/realisticVisionV40_v40VAE.civitai.info
+/myenv/

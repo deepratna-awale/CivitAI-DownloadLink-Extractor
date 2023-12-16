@@ -26,7 +26,7 @@ config.read(config_path)
 
 def get_paths_from_config():
 # Constants
-    OP_PATH, SD_PATH = None, None
+    OP_PATH, SD_PATH = 'Output', None
     try:
         SD_PATH = config["SD-DIR"]["dir"]
         
@@ -60,7 +60,7 @@ def get_info_file_names_from_SD(models_dir):
 
 
 def main():
-    get_paths_from_config()
+    OP_PATH, SD_PATH = get_paths_from_config()
     failed_files = []
 
     models_dir = os.path.join(SD_PATH, "models")

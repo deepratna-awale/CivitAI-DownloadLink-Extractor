@@ -52,6 +52,7 @@ options.add_experimental_option("debuggerAddress", "localhost:9222")
 
 def scroll_to_bottom():
     driver = webdriver.Chrome(options=options)
+    downloads = driver.find_element(By.CLASS_NAME, "mantine-Group-root.mantine-qhet0v")
     elements_loaded_per_scroll = 20
     actions = ActionChains(driver)
     actions.move_to_element(downloads)
@@ -88,7 +89,7 @@ def scroll_to_bottom():
                     )
 
                 if last_count >= count:
-                    time.sleep(5)
+                    time.sleep(7)
                     count = len(
                         body.find_elements(
                             By.CLASS_NAME, "mantine-Text-root.mantine-1wzmzwb"
@@ -164,15 +165,14 @@ def get_download_links():
     try:
         for name_element, href_element in zip(name_elements, href_elements):
             url = href_element.get_attribute("href")
-            (
-                model_id,
-                version_id,
-                model_info,
-                model_type,
-                model_list,
-                model_name,
-                downloadUrl,
-            ) = None
+
+            model_id = None
+            version_id = None
+            model_info = None
+            model_type = None
+            model_list = None
+            model_name = None
+            downloadUrl = None
 
             model_id = civitai.get_model_id(url)
             version_id = civitai.get_version_id(url)
@@ -195,14 +195,14 @@ def get_download_links():
 
             if None in [model_id, downloadUrl]:
                 failed_links.append(url)
+            else:
+                data = [model_id, model_type, model_name, downloadUrl]
 
-            data = [model_id, model_type, model_name, downloadUrl]
+                download_dict[model_id] = data
 
-            download_dict[model_id] = data
-
-            print(
-                f"{model_name.strip():<100} | {model_id.strip():^7} | {model_type.strip():^10} | {(downloadUrl != None):^7}"
-            )
+                print(
+                    f"{str(model_name):<100} | {str(model_id):^7} | {str(model_type):^10} | {(str(downloadUrl) != None):^7}"
+                )
 
     except KeyboardInterrupt:
         print("Stopped by User.")
@@ -244,7 +244,6 @@ def main():
         process_path = pu.get_path_from_process(PROCESS_NAME)
         pu.terminate_process(PROCESS_NAME)
 
-
     pu.open_process(process_path, ARGS)
 
     if pu.process_exists(PROCESS_NAME):
@@ -252,7 +251,6 @@ def main():
             f"Started {PROCESS_NAME.capitalize()} with args",
             colored({ARGS}, "green"),
         )
-
 
     time.sleep(1)
     print("-------------------------------------")
@@ -274,7 +272,7 @@ def main():
 
     finally:
         download_dict, failed_links = get_download_links()
-        process_util.terminate_process("chrome.exe")
+        pu.terminate_process("chrome.exe")
         model_set = ()
         model_count = defaultdict(int)
 
@@ -309,6 +307,7 @@ def main():
 
         print("---")
         print(colored("Done", "green"))
+
 
 if __name__ == "__main__":
     main()

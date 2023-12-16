@@ -1,5 +1,5 @@
 [project]
-name = "CivitAI_Download_Link_Extractor_Deepratna_Awale"
+name = "CivitAI_Download_Link_Extractor"
 version = "0.0.1"
 authors = [
   { name="Deepratna Awale", email="awale.deep@gmail.com" },

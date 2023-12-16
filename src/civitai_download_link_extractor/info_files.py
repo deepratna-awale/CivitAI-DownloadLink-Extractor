@@ -27,13 +27,13 @@ def read_info_file(path):
     with open(path, "r") as dataFile:
         model_info = (
             model_id
-        ) = model_type = model_list = downloadUrl = model_name = None
+        ) = model_type = model_list = download_url = model_name = None
         try:
             model_info = json.load(dataFile)
             model_id = civitai.get_model_id_from_info(model_info)
             model_type = civitai.get_model_type(model_info)
             model_list = civitai.get_model_download_list(model_info)
-            downloadUrl = civitai.get_latest_model_download_link(model_list)
+            download_url = civitai.get_latest_model_download_link(model_list)
 
             if model_list is not None:
                 model_name = model_list[0].get("name", None)
@@ -43,9 +43,9 @@ def read_info_file(path):
             model_id = None
             model_type = None
             model_name = None
-            downloadUrl = None
+            download_url = None
 
-    return [model_id, model_type, model_name, downloadUrl]
+    return [model_id, model_type, model_name, download_url]
 
 
 def main():
@@ -64,8 +64,8 @@ def main():
             failed_files.extend(info_file)
             continue
 
-        model_id, model_type, model_name, downloadUrl = model_info
-        data = [str(model_id), model_type, model_name, downloadUrl]
+        model_id, model_type, model_name, download_url = model_info
+        data = [str(model_id), model_type, model_name, download_url]
 
         csv_name = model_type + ".csv"
         csv_path = os.path.join(ROOT_DIR, "Output", csv_name)
@@ -73,7 +73,7 @@ def main():
         csv_handler.write_to_csv(data, csv_path)
 
         print(
-            f"{model_name:<100} | {model_id:^7} | {model_type:^10} | {bool(downloadUrl != None):^7}"
+            f"{model_name:<100} | {model_id:^7} | {model_type:^10} | {bool(download_url != None):^7}"
         )
         model_count[model_type] += 1
 
