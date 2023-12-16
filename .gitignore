@@ -1,8 +1,14 @@
 CivitAI_Info_Files/*.info
 CivitAI_Info_Files/*.json
-CSVs/*.csv
+Output/*.csv
 test.py
 local-config.ini
 *.txt
-..__pycache__/
+**/__pycache__/
 !requirements.txt
+.vscode
+*.pyc
+dist
+*.egg-info/
+!/CivitAI_Info_Files/realisticVisionV40_v40VAE.civitai.info
+/myenv/
