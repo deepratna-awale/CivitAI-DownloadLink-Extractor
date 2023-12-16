@@ -1,0 +1,23 @@
+[project]
+name = "CivitAI_Download_Link_Extractor_Deepratna_Awale"
+version = "0.0.1"
+authors = [
+  { name="Deepratna Awale", email="awale.deep@gmail.com" },
+]
+
+description = "Python tool to get download links for any CivitAI models using various techniques."
+readme = "README.md"
+requires-python = ">=3.4"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/deepratnaawale/CivitAI-DownloadLink-Extractor"
+Issues = "https://github.com/deepratnaawale/CivitAI-DownloadLink-Extractor/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

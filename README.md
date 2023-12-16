@@ -12,7 +12,7 @@
    - [x] Lycoris/ Locon
    - [x] Embeddings/ Textual Inversion
    - [x] Checkpoints
-   - [ ] Poses (Unimplemented)
+   - [ ] Poses (Untested)
    - [ ] VAEs (Untested)
    - [ ] Aesthetic Gradients (Untested)
    - [ ] Upscalers (Unimplemented)
@@ -36,31 +36,35 @@ D:\CivitAI-DownloadLink-Extractor
 │   LICENSE
 │   README.md
 │   requirements.txt
-│   test.py
 │
 ├───CivitAI_Info_Files
 │       _InfoFilesHere.txt
-├───CSVs
+│
+├───Output
 │       _csv files go here.txt
 │
-├───src
-│      chromelauncher.py
-│      CSVFromInfoFIles.py
-│      ModelsFromLocalSD.py
-│      scrape-from-download-history.py
-└───
+└───src
+    │   civitai_download_history.py
+    │   info_files.py
+    │   local_SD.py
+    │
+    └───modules
+        │   civitaihelper.py
+        │   csv_handler.py
+        │   process_util.py
+        └───
 ```
 
 # Install Prerequisites
 ```bash
-cd CivitAI-DownloadLink-Extractor
+cd CivitAI-DownloadLink-Extractor/src
 ```
 
 ```bash
 pip install -r requirements.txt
 ```
-## Method 1: Copying info files to Projects root dir
-1. Copy all *.info files to [**CivitAI_Info_Files**](./CivitAI_Info_Files) directory. You do not need to seperate the info files based on model type, CSVs will do that for you!
+## Method 1: Using Info Files
+1. Copy all ".info" files to [**CivitAI_Info_Files**](./CivitAI_Info_Files) directory. You do not need to seperate the info files based on model type, CSVs will do that for you!
 
 2. Run CSVFromInfoFile.py 
 
@@ -77,6 +81,14 @@ dir = <SD Folder Location>
 
 [Output] # This is optional, Default is root dir/CSVs
 dir = <Custom Output Dir>
+```
+```bash
+
+```
+# Method 3: From CivitAI Download History
+> You need Chrome for this
+```bash
+python 
 ```
 
 ---
