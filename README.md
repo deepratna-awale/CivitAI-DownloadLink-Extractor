@@ -61,7 +61,7 @@ D:\CivitAI-DownloadLink-Extractor
 
 - Clone the repo
 ```bash
-git clone https://github.com/deepratnaawale CivitAI-DownloadLink-Extractor.git
+git clone https://github.com/deepratnaawale/CivitAI-DownloadLink-Extractor.git
 ```
 
 - Goto the Downloaded repo
