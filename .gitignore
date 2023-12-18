@@ -11,4 +11,4 @@ local-config.ini
 dist
 *.egg-info/
 !/CivitAI_Info_Files/realisticVisionV40_v40VAE.civitai.info
-/myenv/
+/cdle/
