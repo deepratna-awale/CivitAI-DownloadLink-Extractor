@@ -12,19 +12,20 @@
    - [x] Lycoris/ Locon
    - [x] Embeddings/ Textual Inversion
    - [x] Checkpoints
-   - [ ] Poses (Untested)
-   - [ ] VAEs (Untested)
-   - [ ] Aesthetic Gradients (Untested)
-   - [ ] Upscalers (Unimplemented)
-   - [ ] Wildcards (Unimplemented)
+   - [x] Poses 
+   - [x] VAEs 
+   - [x] Aesthetic Gradients
+   - [x] Upscalers
+   - [x] Wildcards
   
-  > Everything works with Civit AI download history!
-
-
 # Requirements
 1. Python v3.4 or higher
 2. Pip installer
 3. Chrome v120.x `(Other browsers wont work!)` - _only if you want to extract links your your CivitAI Download History._
+
+
+> [!TIP]
+> This repo works with [CivitAIBatchModelDownloader](https://github.com/deepratnaawale/CivitAIBatchModelDownloader), to **batch download CivitAI Models**!
 
 
 # How to use
@@ -76,10 +77,16 @@ python -m venv .venv
 ```
 
 - Activate Virtual Enviorenment
-```bash
-.venv\Scripts\activate
-```
-
+  
+  - For Windows
+  ```bash
+  .venv\Scripts\activate.bat
+  ```
+  
+  - For Linux/ MacOS
+  ```bash
+  .venv\Scripts\activate.sh
+  ```
 
 - Install Requirements
 ```bash
@@ -96,7 +103,8 @@ python extract_links.py
 
 
 ## Method 2: Stable Diffusion Path
-> NOTE: ALL PATHS IN [`CONFIG.INI`](./config.ini) MUST BE ABSOLUTE PATHS
+> [!NOTE] 
+> ALL PATHS IN [`CONFIG.INI`](./config.ini) MUST BE ABSOLUTE PATHS.
 
 1. Edit `config.ini`.
 
@@ -123,7 +131,7 @@ dir = <Custom Output Dir>
 - Once the Debug Browser starts (You cant really tell it's in debug mode)
   - The script will automatically navigate to user account (to check if you are logged in).
   - If you are logged in it will navigate to your download history automatically.
-  - It will scroll down to the bottom of the page (PLEASE DO NOT minimize, mouse click, or use the keyboard; the script WILL FAIL! Unfortunately, there is no particular way around this).
+  - It will scroll down to the bottom of the page (PLEASE DO NOT minimize, mouse click, or use the keyboard; the script WILL FAIL! Unfortunately, I couldn't find any way around this).
 
 
 ![Chrome Tutorial](https://github.com/deepratnaawale/CivitAI-DownloadLink-Extractor/blob/main/tutorial_gif.gif)
@@ -141,6 +149,8 @@ Sr.no | Model ID| Model Name | Model URL
 # Credits
 * [Qyabghuyn94](https://github.com/quanghuyn94/) for civitai-helper.py: https://github.com/quanghuyn94/anything-model-batch-downloader/
 
+
+
 ## Author Notes [BONUS]
 - I made this script to use with Runpod.
-- If you are looking to **batch download** these extracted models to **Runpod**, goto my `Better Faster Stable Diffusion Runpod` repository. It uses multi threading to dramatically increase download speeds! You don't even need to wait for everything to download!
+- If you are looking to **batch download** these extracted models to **Runpod**, goto my [CivitAIBatchModelDownloader](https://github.com/deepratnaawale/CivitAIBatchModelDownloader) repository. It uses multi threading to dramatically increase download speeds! You don't even need to wait for everything to download!
