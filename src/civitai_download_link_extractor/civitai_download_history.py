@@ -207,7 +207,7 @@ def get_download_links():
     except KeyboardInterrupt:
         print("Stopped by User.")
 
-    driver.minimize_window()
+    # driver.minimize_window()
     return download_dict, failed_links
 
 
